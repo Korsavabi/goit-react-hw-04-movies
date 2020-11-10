@@ -11,9 +11,7 @@ const Header = () => {
             <AppBar position="static">
                 <Toolbar variant="dense">
                     <NavLink to="/" className="link">Home</NavLink>
-                    <NavLink to="/users" className="link">Users</NavLink>
-                    <NavLink to="/repos" className="link">Repos</NavLink>
-
+                    <NavLink to="/movie" className="link">Movie</NavLink>
                     {/* <Typography variant="h6" color="inherit">
                     <NavLink to="/" className="link">Home</NavLink>
                         <NavLink to="/users" className="link">Users</NavLink>
