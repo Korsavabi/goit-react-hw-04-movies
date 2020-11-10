@@ -4,8 +4,7 @@ import './App.css';
 import Header from './Components/Header/Header';
 import { Switch, Route, Redirect } from 'react-router-dom'
 import Home from './Conteiners/Home/Home';
-import Users from './Conteiners/Users/Users';
-import Repos from './Conteiners/Repos/Repos';
+import Movie from './Conteiners/Movie/Movie';
 import SingleUser from './Components/SingleUser/SingleUser';
 
 const App = () => {
@@ -15,8 +14,7 @@ const App = () => {
       <Header />
       <Switch>
         <Route path='/' exact component={Home}></Route>
-        <Route path='/users' exact component={Users}></Route>
-        <Route path='/repos' exact component={Repos}></Route>
+        <Route path='/movie' exact component={Movie}></Route>
         <Route path='/users/:name' component={SingleUser}></Route>
         <Redirect to='/'/>
       </Switch>

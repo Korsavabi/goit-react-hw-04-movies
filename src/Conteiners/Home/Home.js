@@ -5,7 +5,7 @@ import { withCredentials, request } from '../../helpers/request'
 
 class Home extends Component {
     state = {
-        users: [],
+        movies: [],
         loader: true,
         error: false,
         search: '',
@@ -14,23 +14,23 @@ class Home extends Component {
         totalItemCount: 20
     }
     componentDidMount() {
-        this.getUsers()
+        this.getMovies()
     }
-    getUsers = async () => {
+    getMovies = async () => {
         // const { page, perPage } = this.state;
 
-        const url = withCredentials(`https://developers.themoviedb.org/3/trending/get-trending/all/day?`);
+        const url = withCredentials(`https://api.themoviedb.org/3/trending/all/day?`);
         try {
             const result = await request('get', url);
-            this.updateUsers(result.result)
+            this.updateMovies(result.results)
         } catch (error) {
             this.errorToggle(true)
         } finally {
             this.loaderToggle(false)
         }
     }
-    updateUsers = (users) => {
-        this.setState({ users })
+    updateMovies = (movies) => {
+        this.setState({ movies })
     }
     loaderToggle = (status) => {
         this.setState({ loader: status })
@@ -40,7 +40,7 @@ class Home extends Component {
     }
 
     render() {
-        const { users, loader, error, } = this.state;
+        const { movies, loader, error, } = this.state;
         return (
             <>
                 {loader && <Loader type="Puff"
@@ -49,7 +49,7 @@ class Home extends Component {
                     width={100}
                     timeout={3000} />}
                 {/* <Form /> */}
-                <List users={users}/>
+                <List movies={movies}/>
 
             </>
         );

@@ -3,10 +3,10 @@ import './List.css';
 import ListItem from '../ListItem/ListItem';
 
 
-const List = ({users}) => {
+const List = ({movies}) => {
   return (
     <div className='container'>
-      {users.map(card => <ListItem key={card.id} {...card} />)}
+      {movies.map(card => <ListItem key={card.id} {...card} />)}
     </div>
   );
 };

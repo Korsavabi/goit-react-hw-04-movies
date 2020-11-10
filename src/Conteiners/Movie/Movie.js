@@ -1,14 +1,14 @@
 import React from 'react';
 
-const Users = () => {
+const Movie = () => {
     return (
         <div>
-            <h1> Users Page</h1>
+            <h1>Movie Page</h1>
         </div>
     );
 };
 
-export default Users;
+export default Movie;
 // import React, { Component } from 'react';
 // // import Form from '../../Components/Form/Form';
 // import List from '../../Components/List/List';

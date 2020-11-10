@@ -7,5 +7,5 @@ export const withCredentials = (url) => {
 export const request = async (method, url, body = null) => {
     const result = await axios[method](url, body);
 
-    return result;
+    return result.data;
 }
