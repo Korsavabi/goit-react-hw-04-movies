@@ -12,17 +12,6 @@ const Header = () => {
                 <Toolbar variant="dense">
                     <NavLink to="/" className="link">Home</NavLink>
                     <NavLink to="/movie" className="link">Movie</NavLink>
-                    {/* <Typography variant="h6" color="inherit">
-                    <NavLink to="/" className="link">Home</NavLink>
-                        <NavLink to="/users" className="link">Users</NavLink>
-                        <NavLink to="/repos" className="link">Repos</NavLink>
-                    </Typography> */}
-                    {/* <Typography variant="h6" color="inherit">
-                        Users
-                    </Typography>
-                    <Typography variant="h6" color="inherit">
-                        Repos
-                    </Typography> */}
                 </Toolbar>
             </AppBar>
         </div>

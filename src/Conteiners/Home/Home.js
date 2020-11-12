@@ -17,9 +17,8 @@ class Home extends Component {
         this.getMovies()
     }
     getMovies = async () => {
-        // const { page, perPage } = this.state;
 
-        const url = withCredentials(`https://api.themoviedb.org/3/trending/all/day?`);
+        const url = withCredentials(`https://api.themoviedb.org/3/trending/movie/day?language=ru&`);
         try {
             const result = await request('get', url);
             this.updateMovies(result.results)

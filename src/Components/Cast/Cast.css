@@ -1,0 +1,12 @@
+.casts__box{
+    display: flex;
+    flex-wrap: wrap;
+   justify-content: center;
+}
+.casts__block{
+    display: block;
+    border: 1px solid black;
+    width: 200px;
+    margin-right: 30px;
+    margin-bottom: 15px;
+}

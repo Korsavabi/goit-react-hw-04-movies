@@ -1,55 +1,83 @@
 import React, { useState } from 'react';
-import { withCredentials, request } from '../../helpers/request'
-import Loader from 'react-loader-spinner';
+import PropTypes from "prop-types";
+import { useHistory, useLocation } from 'react-router-dom';
 import './Form.css';
 
-const Form = ({ onSubmit, loaderToggle, errorToggle}) => {
-    const [search, setSearch] = useState('');
-    const [type, setType] = useState('users');
+const Form = ({ onToSubmit, search, inputHendler, resetForm }) => {
+    const history = useHistory();
+    const location = useLocation()
 
-    const inputHeandler = ({ target }) => {
-        const { value } = target;
-        setSearch(value)
-    }
-    const selectedHeandler = ({ target }) => {
-        const { value } = target;
-        setType(value)
-    }
-    const submitHeandler = async (e) => {
+    const submitHendler = (e) => {
         e.preventDefault();
-
-        const url = withCredentials(`https://api.github.com/search/${type}?q=${search}&`);
-        try{
-            await loaderToggle()
-            await errorToggle(false)
-            const result = await request('get', url);
-            onSubmit(result.items);
-        }catch (error) {
-            errorToggle(true)
-        } finally{
-            loaderToggle()
-            setSearch('')
-        }
+        onToSubmit(search);
+        resetForm();
+        history.push({ ...location, search: `?userName=${search}` })
     }
+    
     return (
-        <form onSubmit={submitHeandler}>
+        <form onSubmit={submitHendler} className='form'>
             <input
                 className="SearchForm-input"
                 type="text"
-                // autofocus
-                // autocomplete="on"
                 name='search'
                 value={search}
-                onChange={inputHeandler}
+                onChange={inputHendler}
                 placeholder="Search images and photos"
             />
-            {/* <select name="type" value={type} onChange={selectedHeandler}>
-                <option value="users">User</option>
-                <option value="repositories">Repositories</option>
-            </select> */}
             <button type="submit">Search </button>
         </form>
     );
 };
 
 export default Form;
+// import React, { Component } from 'react';
+// import PropTypes from "prop-types";
+
+// class Form extends Component {
+
+//     state = {
+//         search: '',
+//     }
+//     submitHandler = (e) => {
+//         e.preventDefault();
+//         const { search } = this.state;
+//         this.props.onSubmit(search);
+//         this.setState({ search: '' })
+//         console.log(this.props.value.history.location.search);
+
+//     }
+
+//     inputHandler = (e) => {
+//         this.setState({ search: e.target.value })
+//     }
+//     render() {
+//         const { search } = this.state;
+
+//         return (
+//             <header className="Searchbar">
+//                 <form className="SearchForm" onSubmit={this.submitHandler}>
+//                     <button type="submit" className="SearchForm-button">
+//                         <span className="SearchForm-button-label">Search</span>
+//                     </button>
+
+//                     <input
+//                         className="SearchForm-input"
+//                         type="text"
+//                         name='search'
+//                         value={search}
+//                         onChange={this.inputHandler}
+//                         placeholder="Search images and photos"
+//                     />
+//                 </form>
+//             </header>
+//         );
+//     }
+// }
+
+
+
+// Form.propTypes = {
+//     onSubmit: PropTypes.func.isRequired,
+// }
+
+// export default Form;
