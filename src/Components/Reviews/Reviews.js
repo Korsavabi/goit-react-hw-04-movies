@@ -18,17 +18,17 @@ const Reviews = () => {
     }, [])
     return (
         <div className="reviews__box">
-            {reviews.id && (
+            {reviews.results.length ? (
                 reviews.results.map(result => {
                     return (
                         <div className="reviews__block" key={result.id}>
                             <h3>Author: {result.author}</h3>
-                            {!!result ? (<p>{result.content}</p>) : (<p>The resource you requested could not be found.</p>)}
+                            <p>{result.content}</p>
                             {/* <p>{result ? (result.content) : 'The resource you requested could not be found.'}</p> */}
                         </div>
                     )
                 })
-            )&& <p>The resource you requested could not be found.</p>}
+            ): (<p>The resource you requested could not be found.</p>)}
         </div>
     );
 };
