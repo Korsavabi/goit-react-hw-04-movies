@@ -18,7 +18,7 @@ const Reviews = () => {
     }, [])
     return (
         <div className="reviews__box">
-            {reviews.results.length ? (
+            {reviews.id && reviews.results.length ? (
                 reviews.results.map(result => {
                     return (
                         <div className="reviews__block" key={result.id}>
@@ -28,7 +28,7 @@ const Reviews = () => {
                         </div>
                     )
                 })
-            ): (<p>The resource you requested could not be found.</p>)}
+            ) : (<p>The resource you requested could not be found.</p>)}
         </div>
     );
 };
