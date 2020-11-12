@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useHistory, useLocation } from 'react-router-dom';
 import './Form.css';
 
-const Form = ({ onToSubmit, search, inputHendler, resetForm }) => {
+const Form = ({ onToSubmit, search, inputHendler, resetForm}) => {
     const history = useHistory();
     const location = useLocation()
 

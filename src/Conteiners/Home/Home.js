@@ -13,6 +13,7 @@ class Home extends Component {
         perPage: 9,
         totalItemCount: 20
     }
+   
     componentDidMount() {
         this.getMovies()
     }
