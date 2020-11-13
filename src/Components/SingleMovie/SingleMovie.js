@@ -10,6 +10,7 @@ const SingleMovie = () => {
     const movieId = useParams().name;
     const match = useRouteMatch();
     const history = useHistory();
+    
     useEffect(() => {
         const url = createSingleMovie(movieId);
         request('get', url)
