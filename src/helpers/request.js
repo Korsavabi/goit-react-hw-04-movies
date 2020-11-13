@@ -9,7 +9,7 @@ export const request = async (method, url, body = null) => {
 
     return result.data;
 }
-// language=ru&
+
 export const createSingleMovie = (id) => {
     return withCredentials(`https://api.themoviedb.org/3/movie/${id}?`)
 }

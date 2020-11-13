@@ -38,7 +38,7 @@ const SingleMovie = () => {
                     </ul>
                     <h3 className='movie__title-h3'>{movie.tagline}</h3>
                     <h2 className='movie__title-h2'>Overview</h2>
-                    <p className='movie__text'>{movie.overview}</p>
+                    <p className='movie__text'>{movie.overview? movie.overview : 'The resource you requested could not be found.'}</p>
                 </div>
             </div>)}
             <ul className='list__single'>
