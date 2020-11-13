@@ -86,3 +86,18 @@
 .movie__text:nth-child(2){
     color: #ffffff;
 }
+.button__movie{
+    float: left;
+    background-color: rgba(0, 0, 255, 0);
+    outline: none;
+    border: 1px solid black;
+    cursor: pointer;
+    padding: 4px 20px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.button__movie:focus,
+.button__movie:hover{
+    background-color: rgb(0, 0, 0);
+    border: 1px solid rgb(75, 75, 75);
+    color: #ffffff;
+}

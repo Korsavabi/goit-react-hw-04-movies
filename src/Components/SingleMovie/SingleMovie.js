@@ -19,8 +19,12 @@ const SingleMovie = () => {
     const genreClick = (e) => {
       return  history.push({ pathname:'/movie', search: `userName=${e.target.textContent}`})
     }
+    const goToBack = () => {
+        return  history.push({ pathname:'/movie'})
+    }
     return (
         <div >
+            <button onClick={goToBack} className='button__movie' type="button">go back</button>
             {movie.id && (<div className='movie__box'>
                 <div className='movie__box-img'>
                     <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className='movie__img' />
