@@ -21,7 +21,7 @@ const SingleMovie = () => {
       return  history.push({ pathname:'/movie', search: `userName=${e.target.textContent}`})
     }
     const goToBack = () => {
-        return  history.push({ pathname:'/movie'})
+        return  history.push({ pathname:'/'})
     }
     return (
         <div >

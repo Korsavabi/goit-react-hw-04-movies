@@ -48,3 +48,6 @@
     background-color: rgba(0, 0, 0);
     box-shadow: 0 0 0 2px white, 0 0 0 4px #3A2F28;
 }
+.active{
+    color: black;
+}
