@@ -12,6 +12,8 @@ const Header = () => {
                 <Toolbar variant="dense">
                     <NavLink to="/" className="link">Home</NavLink>
                     <NavLink to="/movie" className="link">Movie</NavLink>
+                    <NavLink to="/genre" className="link">Genres</NavLink>
+                    <NavLink to="/person" className="link">Person</NavLink>
                 </Toolbar>
             </AppBar>
         </div>

@@ -1,36 +1,31 @@
 import React, { Component } from 'react';
-import List from '../../Components/List/List';
 import Loader from 'react-loader-spinner';
 import { withCredentials, request } from '../../helpers/request';
+import './Genres.css';
 
-class Home extends Component {
+class Genres extends Component {
     state = {
-        movies: [],
+        genres: [],
         loader: true,
         error: false,
-        search: '',
-        page: 1,
-        perPage: 9,
-        totalItemCount: 20
     }
-   
     componentDidMount() {
-        this.getMovies()
+        this.getGenres()
     }
-    getMovies = async () => {
+    getGenres = async () => {
 
-        const url = withCredentials(`https://api.themoviedb.org/3/trending/movie/day?`);
+        const url = withCredentials(`https://api.themoviedb.org/3/genre/movie/list?`);
         try {
             const result = await request('get', url);
-            this.updateMovies(result.results)
+            this.updateGenres(result.genres)
         } catch (error) {
             this.errorToggle(true)
         } finally {
             this.loaderToggle(false)
         }
     }
-    updateMovies = (movies) => {
-        this.setState({ movies })
+    updateGenres = (genres) => {
+        this.setState({ genres })
     }
     loaderToggle = (status) => {
         this.setState({ loader: status })
@@ -38,22 +33,24 @@ class Home extends Component {
     errorToggle = (status) => {
         this.setState({ error: status })
     }
-
+    genreClick = (e) => {
+        return  this.props.history.push({ pathname:'/movie', search: `userName=${e.target.textContent}`})
+      }
     render() {
-        const { movies, loader, error, } = this.state;
+        const {genres, loader} = this.state
         return (
             <>
-                {loader && <Loader type="Puff"
+              {loader && <Loader type="Puff"
                     color="#00BFFF"
                     height={100}
                     width={100}
                     timeout={3000} />}
-                {/* <Form /> */}
-                <List movies={movies}/>
-
+            <ul className='genre__list'>
+                {genres.map(genre => <li className='genre__list-item' key={genre.id}><a onClick={this.genreClick} className='genre__list-item-link'>{genre.name}</a></li>)}
+            </ul>
             </>
         );
     }
 }
 
-export default Home;
+export default Genres;

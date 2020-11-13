@@ -1,0 +1,41 @@
+.person__list{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 10px auto;
+}
+.person__list-item{
+    margin-right: 30px;
+    margin-bottom: 15px;
+    border: 1px solid black;
+    padding: 20px;
+}
+.person__block-img{
+    overflow: hidden;
+    border: 1px solid black;
+}
+.person__img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.person__block-text{
+   padding: 15px;
+   margin-top: 10px;
+   overflow: hidden;
+
+}
+.person__block-text h3{
+    margin: 0;
+    padding: 0;
+}
+.person__block-list{
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    width: 200px;
+}
+.person__block-list-item{
+    padding: 5px;
+    text-align: left;
+}

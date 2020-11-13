@@ -21,5 +21,5 @@ export const createReviews = (id) => {
     return withCredentials(`https://api.themoviedb.org/3/movie/${id}/reviews?`)
 }
 export const createSearch = (search, page) => {
-    return withCredentials(`https://api.themoviedb.org/3/search/movie?query=${search}&page=${page}&`)
+    return withCredentials(`https://api.themoviedb.org/3/search/movie?query=${search}&page=${page}&` || `https://api.themoviedb.org/3/search/person?query=${search}&page=${page}&`)
 }

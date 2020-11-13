@@ -2,14 +2,13 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import './ListItem.css'
 
-const ListItem = ({ title, vote_average, poster_path, vote_count, id }) => {
+const ListItem = ({ title, vote_average, poster_path, vote_count, id}) => {
 
   const history = useHistory();
 
   const redirectToUserPage = () => {
     history.push(`/movie/${id}`)
   }
-
   return (
 
     <div className='card' onClick={redirectToUserPage}>
