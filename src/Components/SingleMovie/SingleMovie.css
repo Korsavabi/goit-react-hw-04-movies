@@ -3,7 +3,6 @@
     margin: 0 350px;
     align-items: left;
     margin-top: 30px;
-    /* background-color: rgba(0, 0, 0, 0.685); */
     background: linear-gradient(280deg, #090B13 0%, rgba(9, 11, 19, 0.2) 100%);
     border-radius: 25px;
 
@@ -80,7 +79,6 @@
 .movie__text{
     font-size: 26px;
     font-weight: 600;
-    /* -webkit-text-stroke: 0.5px #000000; */
     color: #ffffff;
 }
 .movie__text:nth-child(2){
