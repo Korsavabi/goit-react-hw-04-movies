@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 const PersonListItem = ({ id, name, profile_path, known_for }) => {
     const history = useHistory();
     const redirectToUserPage = () => {
-        history.push(`/person/${id}`)
+        history.push(`/person/${id}`, {name: name} )
     }
     const personClick = (e) => {
         return history.push({ pathname: '/movie', search: `userName=${e.target.textContent}` })

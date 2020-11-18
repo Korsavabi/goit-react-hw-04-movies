@@ -48,4 +48,12 @@
     background-color: rgba(0, 0, 0);
     box-shadow: 0 0 0 2px white, 0 0 0 4px #3A2F28;
 }
-
+.list__single{
+    background-color: rgb(71, 71, 255);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    padding: 40px;
+}

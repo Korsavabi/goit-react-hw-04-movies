@@ -10,10 +10,10 @@ const Header = () => {
         <div>
             <AppBar position="static">
                 <Toolbar variant="dense">
-                    <NavLink to="/" className="link">Home</NavLink>
-                    <NavLink to="/movie" className="link">Movie</NavLink>
-                    <NavLink to="/genre" className="link">Genres</NavLink>
-                    <NavLink to="/person" className="link">Person</NavLink>
+                    <NavLink to="/" exact className="link">Home</NavLink>
+                    <NavLink to="/movie" exact className="link">Search</NavLink>
+                    <NavLink to="/genre" exact className="link">Genres</NavLink>
+                    <NavLink to="/person" exact className="link">Person</NavLink>
                 </Toolbar>
             </AppBar>
         </div>

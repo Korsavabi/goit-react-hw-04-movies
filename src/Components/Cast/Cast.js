@@ -15,17 +15,17 @@ const Cast = () => {
             .then(res => setCasts(res))
             .catch(error => console.log(error))
     }, [])
-    const getPerson = (e) => {
-        return  history.push({ pathname:'/person', search: `userName=${e.target.textContent}`})
-    }
+    const redirectToUserPage = (id) => {
+        history.push(`/person/${id}`)
+      }
     return (
         <div className="casts__box">
             {casts.id && (
                 casts.cast.map(cas => {
                     return (
-                        <div className="casts__block" key={cas.id}>
+                        <div className="casts__block" key={cas.id} onClick={() => redirectToUserPage(cas.id)}>
                             <img src={cas.profile_path ? `https://image.tmdb.org/t/p/w500${cas.profile_path}` : 'https://www.pcjrchargers.com/sites/default/files/default_images/default-user_0.png'} width='200' height='auto'/>
-                            <a onClick={getPerson}><h1>{cas.name}</h1></a>
+                            <a><h1>{cas.name}</h1></a>
                             <p>{cas.character}</p>
                         </div>)
                 })

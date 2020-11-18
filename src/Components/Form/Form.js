@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useHistory, useLocation } from 'react-router-dom';
 import './Form.css';
 
-const Form = ({ onToSubmit, search, inputHendler, resetForm}) => {
+const Form = ({ onToSubmit, search, inputHendler, resetForm, selectedHeandler, type}) => {
     const history = useHistory();
     const location = useLocation()
 
@@ -22,8 +22,12 @@ const Form = ({ onToSubmit, search, inputHendler, resetForm}) => {
                 name='search'
                 value={search}
                 onChange={inputHendler}
-                placeholder="Search images and photos"
+                placeholder={"Search images and photos"}
             />
+            <select name='type' value={type} onChange={selectedHeandler}>
+                <option value='movie'>Movie</option>
+                <option value='person'>Person</option>
+            </select>
             <button type="submit">Search </button>
         </form>
     );

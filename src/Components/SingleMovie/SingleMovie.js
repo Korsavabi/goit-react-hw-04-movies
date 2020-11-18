@@ -21,14 +21,14 @@ const SingleMovie = () => {
       return  history.push({ pathname:'/movie', search: `userName=${e.target.textContent}`})
     }
     const goToBack = () => {
-        return  history.push({ pathname:'/'})
+        return  history.goBack('/')
     }
     return (
         <div >
             <button onClick={goToBack} className='button__movie' type="button">go back</button>
             {movie.id && (<div className='movie__box'>
                 <div className='movie__box-img'>
-                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className='movie__img' />
+                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className='movie__img'/>
                 </div>
                 <div className='movie__box-block'>
                     <h1 className='movie__title'>{movie.title} ( {new Date(movie.release_date).getFullYear()} )</h1>
@@ -39,7 +39,7 @@ const SingleMovie = () => {
                     </ul>
                     <h3 className='movie__title-h3'>{movie.tagline}</h3>
                     <h2 className='movie__title-h2'>Overview</h2>
-                    <p className='movie__text'>{movie.overview? movie.overview : 'The resource you requested could not be found.'}</p>
+                    <p className='movie__text'>{movie.overview ? movie.overview : 'The resource you requested could not be found.'}</p>
                 </div>
             </div>)}
             <ul className='list__single'>

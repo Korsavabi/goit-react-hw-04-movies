@@ -8,7 +8,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 // import Genres from './Conteiners/Genres/Genres';
 // import Person from './Conteiners/Person/Person'
 const Home = lazy(() => import('./Conteiners/Home/Home'))
-const Movie = lazy(() => import('./Conteiners/Movie/Movie'))
+const Search = lazy(() => import('./Conteiners/Search/Search'))
 const SingleUser = lazy(() => import('./Components/SingleMovie/SingleMovie'))
 const Genres = lazy(() => import('./Conteiners/Genres/Genres'))
 const Person = lazy(() => import('./Conteiners/Person/Person'))
@@ -20,7 +20,7 @@ const App = () => {
       <Suspense fallback={<p>Loading</p>}>
         <Switch>
           <Route exact path='/' component={Home}></Route>
-          <Route exact path='/movie' component={Movie}></Route>
+          <Route exact path='/movie' component={Search}></Route>
           <Route path='/movie/:name' component={SingleUser}></Route>
           <Route exact path='/genre' component={Genres}></Route>
           <Route exact path='/person' component={Person}></Route>

@@ -3,13 +3,14 @@ import ListItem from '../ListItem/ListItem';
 import './List.css';
 
 
-const List = ({movies}) => {
- 
+const List = ({ movies }) => {
+
   return (
     <>
-    <div className='container'>
-      {movies.map(result => <ListItem key={result.id} {...result} />)}
-    </div>
+        <h2>{movies.length}</h2>
+      <div className='container'>
+        {movies.map(result => <ListItem key={result.id} {...result} />)}
+      </div>
     </>
   );
 };

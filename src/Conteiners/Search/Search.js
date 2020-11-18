@@ -81,7 +81,8 @@ class Movie extends Component {
         error: false,
         loader: true,
         search: '',
-        page: 1
+        page: 1,
+        type: 'movie'
     }
     componentDidMount() {
         const { location } = this.props
@@ -99,11 +100,11 @@ class Movie extends Component {
             movies: []
         })
     };
-    getSearch = async (search='dog') => {
-        const { page } = this.state;
+    getSearch = async (search = 'dog') => {
+        const { page, type } = this.state;
         const { errorToggle, loaderToggle } = this;
 
-        const url = await createSearch(search, page);
+        const url = await createSearch(search, page, type);
 
         try {
             const result = await request('get', url)
@@ -131,9 +132,13 @@ class Movie extends Component {
     resetForm = () => {
         this.setState({ search: '' })
     }
+    selectedHeandler = ({ target }) => {
+        const { value } = target;
+        this.setState({type: value})
+    }
     render() {
 
-        const { movies, search, loader, error } = this.state
+        const { movies, search, loader, error, type } = this.state
         return (
             <>
                 {loader && <Loader type="Puff"
@@ -143,7 +148,7 @@ class Movie extends Component {
                     timeout={3000} />}
                 {!loader && !error &&
                     <>
-                        <Form onToSubmit={this.getSearch} search={search} resetForm={this.resetForm} inputHendler={this.inputHendler} />
+                        <Form onToSubmit={this.getSearch} search={search} type={type} resetForm={this.resetForm} inputHendler={this.inputHendler} selectedHeandler={this.selectedHeandler} />
                         <List movies={movies} />
                     </>
                 }
